@@ -28,13 +28,22 @@ family called out in the assignment (tabular/interchange: `.dat` `.csv`
 `.tsv` `.arff`; spreadsheet: `.xlsx` `.ods`; `.json` `.ubj` `.html` `.xml`;
 binary: `.pkl` `.h5` `.zip` `.sql` `.mat` `.npy` `.npz`; images: `.jpg` `.png`
 `.bmp` `.tiff` `.dcm` `.mha`; video: `.mp4` `.avi` `.mpeg`; audio: `.wav`
-`.mp3` `.midi`; text: `.txt` `.pdf` `.docx`) the notebook generates a small
-representative sample file, reads it back with the appropriate library,
-prints its properties (shape/size/dims/etc.), and visualizes it (line/bar/
-histogram/pie/scatter for tabular data, image plots, a video player, an
-audio player + spectrogram, and a word cloud / bubble chart for text).
-Sample data is generated locally inside the notebook (instead of pulled from
-the live internet) so the notebook re-runs reproducibly offline. Two very
+`.mp3` `.midi`; text: `.txt` `.pdf` `.docx`) the notebook loads a genuine,
+widely-used public dataset, re-saves it into the target format, reads it
+back with the appropriate library, prints its properties (shape/size/dims/
+etc.), and visualizes it (line/bar/histogram/pie/scatter, image plots, a
+video player, an audio player + spectrogram, and a word cloud / bubble
+chart). The datasets used: **Iris** (tabular/`.arff`), **Wine**
+(spreadsheet/`.xml`), **Titanic** via `seaborn` (`.json`/`.ubj`/`.html`/
+`.sql`), **Digits** (`.h5`/`.npy`/`.npz`), SciPy's **raccoon face** demo
+image (`.mat`), scikit-image's **astronaut** test image (`.jpg`/`.png`/
+`.bmp`/`.tiff`), a real anonymized CT slice bundled with `pydicom`
+(`.dcm`), scikit-image's **cells3d** fluorescence-microscopy volume
+(`.mha`), OpenCV's canonical **`vtest.avi`** pedestrian sample video
+(`.mp4`/`.avi`/`.mpeg`), librosa's **trumpet** demo recording (`.wav`/
+`.mp3`), a real **J.S. Bach chorale** (BWV 66.6) from `music21`'s corpus
+(`.midi`), and Lewis Carroll's **Alice's Adventures in Wonderland** from
+NLTK's Gutenberg corpus (`.txt`/`.pdf`/`.docx`/word cloud). Two very
 legacy formats (`.sxc`, `.dif`, legacy binary `.xls`) have no maintained
 read/write library on Python 3.13 and are called out as unsupported rather
 than faked.
@@ -56,8 +65,11 @@ pip install -r requirements.txt
 python -m ipykernel install --user --name=nlp-week1 --display-name "Python (NLP week1)"
 ```
 
-Also requires `ffmpeg` on `PATH` for MP3 encoding (`brew install ffmpeg`) and
-NLTK corpora, downloaded on first run via `nltk.download(...)` (brown,
+Also requires `ffmpeg` on `PATH` for MP3 encoding (`brew install ffmpeg`),
+an internet connection on first run (to download Titanic via `seaborn`,
+`vtest.avi` from the OpenCV GitHub repo, the librosa trumpet clip, and the
+scikit-image/scipy demo datasets — all cached locally afterwards), and NLTK
+corpora downloaded on first run via `nltk.download(...)` (brown, gutenberg,
 punkt, punkt_tab, stopwords, wordnet, omw-1.4, averaged_perceptron_tagger).
 
 Run the notebook with the `nlp-week1` kernel in Jupyter/Colab/VS Code.
@@ -67,5 +79,6 @@ Run the notebook with the `nlp-week1` kernel in Jupyter/Colab/VS Code.
 Key libraries: `pandas`, `numpy`, `matplotlib`, `scipy`, `h5py`, `openpyxl`,
 `odfpy`, `lxml`, `pillow`, `opencv-python-headless`, `pydicom`,
 `SimpleITK`, `soundfile`, `pydub`, `pretty_midi`, `wordcloud`, `nltk`,
-`liac-arff`, `py-ubjson`, `python-docx`, `pypdf`, `reportlab`. Full pinned
-list in `requirements.txt`.
+`liac-arff`, `py-ubjson`, `python-docx`, `pypdf`, `reportlab`,
+`scikit-learn`, `scikit-image`, `seaborn`, `librosa`, `music21`. Full
+pinned list in `requirements.txt`.
