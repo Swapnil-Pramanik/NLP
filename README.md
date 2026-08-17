@@ -16,7 +16,7 @@ NLP/
 └── week1/
     ├── 2026_ODD_Week_1_Assignment_Intro.pdf   # original assignment brief
     ├── week1.ipynb                            # completed lab notebook
-    └── data/                                  # generated sample files (not tracked)
+    └── data/                                  # generated sample files, one per format (tracked, for review)
 ```
 
 ## Week 1 — Environment & Text Data Handling
