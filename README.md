@@ -9,15 +9,18 @@ assignment PDF.
 
 ```
 NLP/
-├── README.md              # this file
+├── README.md               # this file
 ├── requirements.txt        # pinned Python dependencies (pip freeze from venv/)
 ├── .gitignore
 ├── venv/                   # local virtualenv (not tracked)
-├── week1/
+├── week0/
 │   ├── 2026_ODD_Week_1_Assignment_Intro.pdf   # original assignment brief
-│   ├── week1.ipynb                            # completed lab notebook
+│   ├── week0.ipynb                            # completed lab notebook
 │   └── data/                                  # generated sample files, one per format (tracked, for review)
+├── week1/
+│   ├── NLP_Labsheet_1.pdf   # original assignment brief
+│   └── week1.ipynb          # completed lab notebook
 └── week2/
-    ├── NLP_Labsheet_1.pdf   # original assignment brief
+    ├── Lab2_Assignment.pdf  # original assignment brief
     └── week2.ipynb          # completed lab notebook
 ```
